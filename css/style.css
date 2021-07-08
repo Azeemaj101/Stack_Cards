@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* background-color: brown; */
+    display: flex;
+    justify-content: center;
+    padding: 90px;
+}
+
+.stack {
+    width: 500px;
+    height: 500px;
+    /* background-color: red; */
+    position: relative;
+    /* animation-name: swap; */
+}
+
+.card {
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    min-height: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    font-family: sans-serif;
+    font-size: 10rem;
+    color: #ccc;
+    box-shadow: 2px 2px 20px rgb(90, 89, 89);
+    transition: transform 200ms;
+    /* animation-name: swap; */
+}
+
+.card:nth-last-child(n+4) {
+    color: rgb(33, 43, 23);
+    --y: calc(-50% - 30px);
+    transform: translate(-50%, var(--y)) scale(0.9);
+    box-shadow: 2px 2px 20px rgb(90, 89, 89);
+    /* animation-name: swap; */
+}
+
+.card:nth-last-child(3) {
+    color: rgb(33, 43, 23);
+    --y: calc(-50% - 15px);
+    transform: translate(-50%, var(--y)) scale(0.95);
+    /* animation-name: swap; */
+}
+
+.card:nth-last-child(2) {
+    color: rgb(33, 43, 23);
+    --y: calc(-50%);
+    transform: translate(-50%, var(--y)) scale(1);
+    /* animation-name: swap; */
+}
+
+.card:nth-last-child(1) {
+    color: chartreuse;
+    background-color: coral;
+    --y: calc(-50% + 15px);
+    transform: translate(-50%, var(--y)) scale(1.05);
+    /*    animation-name: swap; */
+}
+
+@keyframes swap {
+    50% {
+        transform: translate(-50%, calc(var(--y) - 250px)) scale(0.85) rotate(-15deg);
+        animation-timing-function: ease-in;
+    }
+    100% {
+        transform: translate(-50%, calc(var(--y) - 15px)) scale(0.85);
+        z-index: -1;
+    }
+}
